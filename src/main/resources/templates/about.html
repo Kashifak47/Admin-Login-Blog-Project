@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <th:block th:insert="~{fragments/navbar :: nav}"></th:block>
+
+    <!-- About Us Section -->
+    <section class="py-16 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-5xl font-extrabold text-gray-800">About Us</h2>
+            <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
+                At <span class="font-semibold text-blue-600">TechSolutions</span>, we go beyond software development—we innovate, create, and empower businesses with cutting-edge technology.
+            </p>
+        </div>
+
+        <!-- Mission & Values Cards -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            
+            <!-- Our Mission -->
+            <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg rounded-lg p-6 relative group transition transform hover:scale-105 hover:rotate-1">
+                <h3 class="text-2xl font-semibold">🚀 Our Mission</h3>
+                <p class="mt-2">
+                    We deliver top-quality software solutions tailored to the unique needs of businesses. Whether it's e-commerce, enterprise software, or AI-driven solutions, we aim to create an impact.
+                </p>
+            </div>
+
+            <!-- Our Core Values -->
+            <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg rounded-lg p-6 relative group transition transform hover:scale-105 hover:-rotate-1">
+                <h3 class="text-2xl font-semibold">💡 Our Core Values</h3>
+                <ul class="mt-2 space-y-2">
+                    <li>✔ <strong>Customer-Centric Approach</strong> – Your success is our priority.</li>
+                    <li>✔ <strong>Innovation & Excellence</strong> – We push boundaries with cutting-edge tech.</li>
+                    <li>✔ <strong>Integrity & Transparency</strong> – Honest communication and ethical practices.</li>
+                    <li>✔ <strong>Continuous Learning</strong> – We evolve with new technologies.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Our Achievements -->
+        <div class="mt-16 text-center">
+            <h3 class="text-4xl font-bold text-gray-800">Our Achievements</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 max-w-6xl mx-auto">
+                
+                <div class="bg-white shadow-md p-6 rounded-lg transition transform hover:scale-105">
+                    <h4 class="text-3xl font-bold text-blue-600">500+</h4>
+                    <p class="text-gray-700 mt-2">Successful Projects</p>
+                </div>
+
+                <div class="bg-white shadow-md p-6 rounded-lg transition transform hover:scale-105">
+                    <h4 class="text-3xl font-bold text-blue-600">200+</h4>
+                    <p class="text-gray-700 mt-2">Happy Clients</p>
+                </div>
+
+                <div class="bg-white shadow-md p-6 rounded-lg transition transform hover:scale-105">
+                    <h4 class="text-3xl font-bold text-blue-600">10+ Years</h4>
+                    <p class="text-gray-700 mt-2">Industry Experience</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Services -->
+        <div class="mt-16 text-center">
+            <h3 class="text-4xl font-bold text-gray-800">Our Services</h3>
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Web Development -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                    <i class="fas fa-laptop-code text-5xl text-blue-500"></i>
+                    <h4 class="text-xl font-semibold mt-4">Web Development</h4>
+                    <p class="text-gray-600">We build responsive and user-friendly websites.</p>
+                </div>
+
+                <!-- Mobile App Development -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                    <i class="fas fa-mobile-alt text-5xl text-green-500"></i>
+                    <h4 class="text-xl font-semibold mt-4">Mobile Apps</h4>
+                    <p class="text-gray-600">We develop high-performance Android & iOS apps.</p>
+                </div>
+
+                <!-- Digital Marketing -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                    <i class="fas fa-bullhorn text-5xl text-yellow-500"></i>
+                    <h4 class="text-xl font-semibold mt-4">Digital Marketing</h4>
+                    <p class="text-gray-600">Boost your brand with SEO & social media.</p>
+                </div>
+
+                <!-- UI/UX Design -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                    <i class="fas fa-paint-brush text-5xl text-red-500"></i>
+                    <h4 class="text-xl font-semibold mt-4">UI/UX Design</h4>
+                    <p class="text-gray-600">Intuitive and visually appealing user interfaces.</p>
+                </div>
+
+                <!-- Cloud Solutions -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                    <i class="fas fa-cloud text-5xl text-purple-500"></i>
+                    <h4 class="text-xl font-semibold mt-4">Cloud Solutions</h4>
+                    <p class="text-gray-600">Scalable cloud computing solutions.</p>
+                </div>
+
+                <!-- E-commerce Solutions -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                    <i class="fas fa-shopping-cart text-5xl text-pink-500"></i>
+                    <h4 class="text-xl font-semibold mt-4">E-commerce Solutions</h4>
+                    <p class="text-gray-600">Feature-rich online stores to boost sales.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Choose Us -->
+        <div class="mt-16 bg-blue-500 text-white p-8 rounded-lg text-center">
+            <h3 class="text-3xl font-semibold">Why Choose Us?</h3>
+            <p class="mt-4 max-w-3xl mx-auto">
+                With **500+ successful projects**, a team of **skilled developers**, and a reputation for **excellence**, we are your perfect partner for digital transformation.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-8">
+        <p>© 2025 TechSolutions. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

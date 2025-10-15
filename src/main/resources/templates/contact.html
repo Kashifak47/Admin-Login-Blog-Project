@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+	<th:block th:insert="~{fragments/navbar :: nav}"></th:block>
+
+	<section class="bg-gray-100 py-16 px-6">
+	    <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
+	        <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Contact Us</h2>
+	        
+	        <form th:action="@{/contact-us}" method="POST" th:object="${contact}" class="space-y-4">
+	            <div>
+	                <label for="name" class="block text-gray-700 font-medium">Your Name</label>
+	                <input type="text" id="name" name="name" th:field="*{name}" required 
+	                    class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+	            </div>
+	            
+	            <div>
+	                <label for="mobile" class="block text-gray-700 font-medium">Mobile Number</label>
+	                <input type="tel" id="mobile" name="mobile" th:field="*{mobile}" required 
+	                    class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+	            </div>
+	            
+	            
+	            <div>
+	                <label for="message" class="block text-gray-700 font-medium">Your Message</label>
+	                <textarea id="message" name="message" rows="4" th:field="*{message}" required 
+	                    class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+	            </div>
+	            
+	            
+	            <button type="submit" 
+	                class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+	                Submit
+	            </button>
+				
+				<p id="successMessage" th:if="${param.success}" class="text-green-600 text-center font-semibold">
+				    Message sent successfully!
+				</p>
+
+				<script>
+				    const message = document.getElementById("successMessage");
+
+				    if (message) {
+				        setTimeout(() => {
+				            message.style.display = "none";
+
+				            setTimeout(() => {
+				                window.location.href = "/contact-us"; 
+				            }, 1000);
+
+				        }, 2000); 
+				    }
+				</script>
+	        </form>
+	    </div>
+	</section>
+</body>
+</html>

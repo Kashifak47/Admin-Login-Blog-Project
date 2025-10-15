@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+        <h2 class="text-2xl font-bold mb-4 text-blue-600">Edit Contact</h2>
+
+        <form th:action="@{/admin/update-contact}" method="post">
+            <!-- Hidden field for ID -->
+            <input type="hidden" name="id" th:value="${contact.id}">
+
+            <div class="mb-4">
+                <label class="block text-gray-700">Name</label>
+                <input type="text" name="name" th:value="${contact.name}" required 
+                       class="w-full px-4 py-2 border border-gray-300 rounded-md">
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700">Mobile</label>
+                <input type="text" name="mobile" th:value="${contact.mobile}" required 
+                       class="w-full px-4 py-2 border border-gray-300 rounded-md">
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700">Message</label>
+                <textarea name="message" required 
+                          class="w-full px-4 py-2 border border-gray-300 rounded-md"
+                          th:text="${contact.message}"></textarea>
+            </div>
+
+            <button type="submit" 
+                    class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300">
+                Update Contact
+            </button>
+
+            <a href="/dashboard" 
+               class="ml-4 text-gray-600 hover:underline">Cancel</a>
+        </form>
+    </div>
+	<!-- JavaScript Alert for Successful Update -->
+	    <script th:if="${successMessage}">
+	        alert("✅ Contact updated successfully!");
+	        window.location.href = "/dashboard"; // Redirect after alert
+	    </script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!-- navbar.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+
+	<nav class="bg-gradient-to-r from-blue-500 to-purple-600 p-4 flex justify-between items-center">
+	 
+	    <a href="/" class="text-white text-xl font-bold">Blog Website</a>
+	    
+	    <ul class="flex space-x-6">
+	        <li>
+	            <a th:href="@{/}" class="text-white font-semibold relative px-4 py-2 rounded transition duration-300 hover:text-yellow-300 
+	                after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-yellow-300 after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">
+	                Home
+	            </a>
+	        </li>
+	        <li>
+	            <a th:href="@{/about}" class="text-white font-semibold relative px-4 py-2 rounded transition duration-300 hover:text-yellow-300 
+	                after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-yellow-300 after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">
+	                About
+	            </a>
+	        </li>
+	        <li>
+	            <a th:href="@{/contact-us}" class="text-white font-semibold relative px-4 py-2 rounded transition duration-300 hover:text-yellow-300 
+	                after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-yellow-300 after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">
+	                Contact
+	            </a>
+	        </li>
+	        <li>
+	            <a th:href="@{/gallery}" class="text-white font-semibold relative px-4 py-2 rounded transition duration-300 hover:text-yellow-300 
+	                after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-yellow-300 after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">
+	                Gallery
+	            </a>
+	        </li>
+			<li>
+			   <a th:href="@{/blog}" class="text-white font-semibold relative px-4 py-2 rounded transition duration-300 hover:text-yellow-300 
+			       after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-yellow-300 after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">
+			       Blog
+			   </a>
+			</li>
+	        <li>
+	            <a th:href="@{/login}" 
+	                class="bg-red-500 text-white px-6 py-2 rounded-full font-semibold transition duration-300 ease-in-out transform hover:bg-red-600 hover:scale-110 hover:shadow-lg">
+	                Login
+	            </a>
+	        </li>
+	    </ul>
+	</nav>
+
+</body>
+</html>

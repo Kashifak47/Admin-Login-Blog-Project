@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gallery Page</title>
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
+	<style>
+		/* Fade-in animation */
+		.fade-in {
+			opacity: 0;
+			transform: translateY(20px);
+			transition: opacity 1s ease-out, transform 1s ease-out;
+		}
+
+		.fade-in.visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- Navbar -->
+	<th:block th:insert="~{fragments/navbar :: nav}"></th:block>
+
+	<!-- Card Container -->
+	<div class="container mx-auto px-6 py-12">
+		<h2 class="text-4xl font-bold text-gray-800 text-center">Our Technical Skills Gallery</h2>
+		<p class="text-lg text-gray-600 text-center mt-2">Dive into various technical domains and enhance your skills.
+		</p>
+
+		<div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+			<!-- Dynamically Load Cards -->
+			<div th:each="item : ${galleryItems}"
+				class="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+				<img th:src="${item.imageUrl}" alt="Gallery Image" class="w-full h-48 object-cover">
+				<div class="p-6">
+					<h3 class="text-xl font-bold text-gray-800" th:text="${item.title}"></h3>
+					<p class="text-gray-600 mt-2" th:text="${item.description}"></p>
+				</div>
+			</div>
+
+			<!-- Programming -->
+			<div
+				class="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+				<img src="https://static.vecteezy.com/system/resources/previews/006/362/890/original/programming-and-software-development-web-page-banner-program-code-on-screen-device-software-development-coding-process-concept-vector.jpg"
+					alt="Programming" class="w-full h-48 object-cover">
+				<div class="p-6">
+					<h3 class="text-xl font-bold text-gray-800">Programming & Development</h3>
+					<p class="text-gray-600 mt-2">Learn languages like Java, Python, JavaScript, and more.</p>
+				</div>
+			</div>
+
+			<!-- Web Development -->
+			<div
+				class="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+				<img src="https://khutwatuk.com/wp-content/uploads/2024/03/%D8%AA%D8%AE%D8%B5%D8%B5-%D9%87%D9%86%D8%AF%D8%B3%D8%A9-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A7%D8%AA-%D9%81%D9%8A-%D9%85%D8%A7%D9%84%D9%8A%D8%B2%D9%8A%D8%A7.webp"
+					alt="Web Development" class="w-full h-48 object-cover">
+				<div class="p-6">
+					<h3 class="text-xl font-bold text-gray-800">Web Development</h3>
+					<p class="text-gray-600 mt-2">Master HTML, CSS, JavaScript, React, and backend technologies.</p>
+				</div>
+			</div>
+
+			<!-- Cybersecurity -->
+			<div
+				class="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+				<img src="https://wallpaperbat.com/img/380623-the-importance-of-cyber-security-in-modern-internet-age.jpg"
+					alt="Cybersecurity" class="w-full h-48 object-cover">
+				<div class="p-6">
+					<h3 class="text-xl font-bold text-gray-800">Cybersecurity</h3>
+					<p class="text-gray-600 mt-2">Learn ethical hacking, penetration testing, and security practices.
+					</p>
+				</div>
+			</div>
+
+			<!-- Data Science -->
+			<div
+				class="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+				<img src="https://cdn.futura-sciences.com/sources/images/data_science_1.jpg" alt="Data Science"
+					class="w-full h-48 object-cover">
+				<div class="p-6">
+					<h3 class="text-xl font-bold text-gray-800">Data Science & AI</h3>
+					<p class="text-gray-600 mt-2">Explore machine learning, AI, and data analytics.</p>
+				</div>
+			</div>
+
+			<!-- Networking -->
+			<div
+				class="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+				<img src="https://donklephant.com/wp-content/uploads/2018/09/future-of-cloud-computing.jpeg"
+					alt="Networking" class="w-full h-48 object-cover">
+				<div class="p-6">
+					<h3 class="text-xl font-bold text-gray-800">Networking & Cloud Computing</h3>
+					<p class="text-gray-600 mt-2">Understand cloud platforms, networking, and server management.</p>
+				</div>
+			</div>
+
+			<!-- Software Engineering -->
+			<div
+				class="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+				<img src="https://careers.techvify.com.vn/wp-content/uploads/2022/06/software-engineer-4.jpg"
+					alt="Software Engineering" class="w-full h-48 object-cover">
+				<div class="p-6">
+					<h3 class="text-xl font-bold text-gray-800">Software Training</h3>
+					<p class="text-gray-600 mt-2">Learn best practices in software development and architecture.</p>
+				</div>
+			</div>
+
+			<!-- DevOps -->
+			<div
+				class="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+				<img src="https://tse1.mm.bing.net/th?id=OIP.ij6dgZmsgD7DCrbt-xU7TwHaDL&pid=Api&P=0&h=180" alt="DevOps"
+					class="w-full h-48 object-cover">
+				<div class="p-6">
+					<h3 class="text-xl font-bold text-gray-800">DevOps & Automation</h3>
+					<p class="text-gray-600 mt-2">Master CI/CD pipelines, Docker, Kubernetes, and cloud deployment.</p>
+				</div>
+			</div>
+
+			<!-- Database Management -->
+			<div
+				class="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+				<img src="https://www.datadesignsystems.com/wp-content/uploads/2020/12/shutterstock_590074937-min-2048x1360.jpg"
+					alt="Database Management" class="w-full h-48 object-cover">
+				<div class="p-6">
+					<h3 class="text-xl font-bold text-gray-800">Database Management</h3>
+					<p class="text-gray-600 mt-2">Learn MySQL, PostgreSQL, MongoDB, and database optimization.</p>
+				</div>
+			</div>
+
+			<!-- Mobile App Development -->
+			<div
+				class="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+				<img src="https://www.udacity.com/blog/wp-content/uploads/2020/12/Mobile-App-Development_Blog-scaled.jpeg"
+					alt="Mobile App Development" class="w-full h-48 object-cover">
+				<div class="p-6">
+					<h3 class="text-xl font-bold text-gray-800">Mobile App Development</h3>
+					<p class="text-gray-600 mt-2">Build Android & iOS apps using Kotlin, Swift, and Flutter.</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	</div>
+	<!-- CTA Section -->
+	<div class="bg-blue-600 text-white text-center py-12 mt-10 fade-in">
+		<h2 class="text-3xl font-bold">Want More Amazing Content?</h2>
+		<p class="mt-2 text-lg">Join our blog community and get the latest updates!</p>
+		<a href="/contact-us"
+			class="mt-4 inline-block bg-white text-blue-600 px-6 py-3 rounded-md font-bold hover:bg-gray-200 transition duration-300">
+			Subscribe Now
+		</a>
+	</div>
+
+	<!-- Footer -->
+	<footer class="bg-gray-800 text-white text-center py-4 mt-10 fade-in">
+		<p>© 2025 My Blog. All rights reserved.</p>
+	</footer>
+
+	<!-- new footer -->
+	<!-- Footer -->
+	<!-- <footer class="bg-gray-800 text-white text-center py-4 mt-10 fade-in">
+		<p>© 2025 My Blog. All rights reserved.</p>
+		<p>Designed & Developed by</p>
+		<p class="text-xl text-red-500">❤️ Kashif Ali ❤️</p>
+	</footer> -->
+
+
+	<!-- JavaScript for Animations -->
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const elements = document.querySelectorAll(".fade-in");
+			elements.forEach((el) => {
+				el.classList.add("visible");
+			});
+		});
+	</script>
+</body>
+
+</html>
