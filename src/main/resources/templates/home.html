@@ -1,173 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Page</title>
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
 	<style>
-	       /* Fade-in animation */
-	       .fade-in {
-	           opacity: 0;
-	           transform: translateY(20px);
-	           transition: opacity 1s ease-out, transform 1s ease-out;
-	       }
-	       .fade-in.visible {
-	           opacity: 1;
-	           transform: translateY(0);
-	       }
-	   </style>
+		/* Fade-in animation */
+		.fade-in {
+			opacity: 0;
+			transform: translateY(20px);
+			transition: opacity 1s ease-out, transform 1s ease-out;
+		}
+
+		.fade-in.visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	</style>
 </head>
+
 <body>
-    
+
 	<!-- Navbar -->
-	    <th:block th:insert="~{fragments/navbar :: nav}"></th:block>
+	<th:block th:insert="~{fragments/navbar :: nav}"></th:block>
 
-	    <!-- Hero Section -->
-	    <section class="bg-blue-500 text-white text-center py-16">
-	        <h1 class="text-5xl font-bold animate-bounce">Welcome to My Blog</h1> 
-	        <p class="mt-4 text-lg animate-fade-in">Discover ideas. Learn new skills. Stay inspired.</p>
-	        <p class="mt-2 text-lg animate-fade-in">Coding, creativity, and innovation – all in one place.</p>
-	        <p class="mt-2 text-lg animate-fade-in">Your journey to knowledge starts here.</p>
-	        <a href="/about" class="mt-6 inline-block bg-white text-blue-500 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-200 transition animate-pulse">Explore More</a>
-	    </section>
-	    
-	    <!-- Features Section -->
-	    <section class="py-16 px-6">
-	        <h2 class="text-3xl font-bold text-center text-gray-800">Our Features</h2>
-	        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-	            
-	            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-	                <h3 class="text-xl font-semibold">Fast & Secure</h3>
-	                <p class="mt-2 text-gray-600">Experience high performance and security in our web applications.</p>
-	            </div>
-	            
-	            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-	                <h3 class="text-xl font-semibold">User-Friendly</h3>
-	                <p class="mt-2 text-gray-600">Easy-to-use interface with seamless navigation.</p>
-	            </div>
-	            
-	            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-	                <h3 class="text-xl font-semibold">Responsive Design</h3>
-	                <p class="mt-2 text-gray-600">Fully responsive and optimized for all devices.</p>
-	            </div>
-	        </div>
-	    </section>
+	<!-- Hero Section -->
+	<section class="bg-blue-500 text-white text-center py-16">
+		<h1 class="text-5xl font-bold animate-bounce">Welcome to My Blog</h1>
+		<p class="mt-4 text-lg animate-fade-in">Explore ideas, learn coding, and boost your skills.</p>
+		<p class="mt-2 text-lg animate-fade-in">Creativity, tech insights, and practical tips – all here.</p>
+		<p class="mt-2 text-lg animate-fade-in">Start your journey to knowledge and innovation today.</p>
+		<a href="/about"
+			class="mt-6 inline-block bg-white text-blue-500 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-200 transition animate-pulse">Explore
+			More</a>
+	</section>
 
-	    <!-- Blog Cards Section -->
-		<section class="container mx-auto px-6 py-12">
-		    <h2 class="text-3xl font-bold text-center text-gray-800">Latest Posts</h2>
-		    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-				
-				<div th:each="content : ${homeContents}" class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
-				           <img th:src="${content.imageUrl}" alt="Blog Image" class="w-full h-64 object-cover">
-				           <div class="p-6">
-				               <h2 class="text-xl font-bold text-gray-800" th:text="${content.title}"></h2>
-				               <p class="text-gray-600 mt-2" th:text="${content.description}"></p>
-				           </div>
-				       </div>
-		        
-		        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
-		            <img src="https://www.geekpedia.com/wp-content/uploads/2023/12/Mastering-JavaScript-Elevating-Web-Interactivity.jpg" alt="Coding" class="w-full h-64 object-cover">
-		            <div class="p-6">
-		                <h2 class="text-xl font-bold text-gray-800">Mastering JavaScript</h2>
-		                <p class="text-gray-600 mt-2">Learn the most powerful JavaScript concepts.</p>
-		            </div>
-		        </div>
 
-		        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
-		            <img src="https://en.sepoin.com/wp-content/uploads/2020/01/AI-ML-4.jpg" alt="Technology" class="w-full h-64 object-cover">
-		            <div class="p-6">
-		                <h2 class="text-xl font-bold text-gray-800">AI & ML</h2>
-		                <p class="text-gray-600 mt-2">How AI is transforming the world around us.</p>
-		            </div>
-		        </div>
+	<!-- Features Section -->
+	<section class="py-16 px-6">
+		<h2 class="text-3xl font-bold text-center text-gray-800">Our Features</h2>
+		<div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
 
-		        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
-		            <img src="https://www.aqskill.com/wp-content/uploads/2022/02/5809368-2-scaled.jpg" alt="Design" class="w-full h-64 object-cover">
-		            <div class="p-6">
-		                <h2 class="text-xl font-bold text-gray-800">UI/UX Best Practices</h2>
-		                <p class="text-gray-600 mt-2">Design principles for modern web applications.</p>
-		            </div>
-		        </div>
+			<div class="bg-white p-6 rounded-lg shadow-md text-center">
+				<h3 class="text-xl font-semibold">Fast & Secure</h3>
+				<p class="mt-2 text-gray-600">Experience high performance and security in our web applications.</p>
+			</div>
 
-		        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
-		            <img src="https://images.tech.co/wp-content/uploads/2017/04/Startup-growth--e1491836867115-640x361.png" alt="Startup" class="w-full h-64 object-cover">
-		            <div class="p-6">
-		                <h2 class="text-xl font-bold text-gray-800">Startup Growth Hacks</h2>
-		                <p class="text-gray-600 mt-2">Strategies for rapid business growth.</p>
-		            </div>
-		        </div>
+			<div class="bg-white p-6 rounded-lg shadow-md text-center">
+				<h3 class="text-xl font-semibold">User-Friendly</h3>
+				<p class="mt-2 text-gray-600">Easy-to-use interface with seamless navigation.</p>
+			</div>
 
-		        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
-		            <img src="https://chaintldr.com/wp-content/uploads/2023/02/Blockchain-Crypto-Web3.png" alt="Blockchain" class="w-full h-64 object-cover">
-		            <div class="p-6">
-		                <h2 class="text-xl font-bold text-gray-800">Blockchain & Web3</h2>
-		                <p class="text-gray-600 mt-2">Exploring the decentralized web.</p>
-		            </div>
-		        </div>
+			<div class="bg-white p-6 rounded-lg shadow-md text-center">
+				<h3 class="text-xl font-semibold">Responsive Design</h3>
+				<p class="mt-2 text-gray-600">Fully responsive and optimized for all devices.</p>
+			</div>
+		</div>
+	</section>
 
-		        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
-		            <img src="https://www.northants-chamber.co.uk/cdn/uploads/Productivity.jpeg" alt="Productivity" class="w-full h-64 object-cover">
-		            <div class="p-6">
-		                <h2 class="text-xl font-bold text-gray-800">Productivity Hacks</h2>
-		                <p class="text-gray-600 mt-2">Tips to maximize efficiency and focus.</p>
-		            </div>
-		        </div>
+	<!-- Blog Cards Section -->
+	<section class="container mx-auto px-6 py-12">
+		<h2 class="text-3xl font-bold text-center text-gray-800">Latest Posts</h2>
+		<div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-		    </div>
-		</section>
+			<div th:each="content : ${homeContents}"
+				class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
+				<img th:src="${content.imageUrl}" alt="Blog Image" class="w-full h-64 object-cover">
+				<div class="p-6">
+					<h2 class="text-xl font-bold text-gray-800" th:text="${content.title}"></h2>
+					<p class="text-gray-600 mt-2" th:text="${content.description}"></p>
+				</div>
+			</div>
 
-	    <!-- Testimonials Section -->
-		<section class="bg-gray-100 py-16">
-		    <h2 class="text-4xl font-bold text-center text-gray-800">What People Say</h2>
-		    <p class="text-center text-gray-600 mt-2">Real feedback from our happy readers</p>
+			<div
+				class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
+				<img src="https://www.geekpedia.com/wp-content/uploads/2023/12/Mastering-JavaScript-Elevating-Web-Interactivity.jpg"
+					alt="Coding" class="w-full h-64 object-cover">
+				<div class="p-6">
+					<h2 class="text-xl font-bold text-gray-800">Mastering JavaScript</h2>
+					<p class="text-gray-600 mt-2">Learn the most powerful JavaScript concepts.</p>
+				</div>
+			</div>
 
-		    <div class="mt-10 max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
-		        
-		        <!-- Testimonial 1 -->
-		        <div class="bg-white p-6 rounded-lg shadow-md relative overflow-hidden transition-transform transform hover:scale-105 duration-300">
-		            <svg class="absolute top-4 left-4 w-10 h-10 text-blue-400 opacity-20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-		                <path stroke-linecap="round" stroke-linejoin="round" d="M19 5l-7 7-7-7"></path>
-		            </svg>
-		            <p class="text-gray-600">"This blog is my go-to resource for staying updated with tech trends!"</p>
-		            <p class="text-gray-800 font-semibold mt-4">- Alex Johnson</p>
-		        </div>
+			<div
+				class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
+				<img src="https://en.sepoin.com/wp-content/uploads/2020/01/AI-ML-4.jpg" alt="Technology"
+					class="w-full h-64 object-cover">
+				<div class="p-6">
+					<h2 class="text-xl font-bold text-gray-800">AI & ML</h2>
+					<p class="text-gray-600 mt-2">How AI is transforming the world around us.</p>
+				</div>
+			</div>
 
-		        <!-- Testimonial 2 -->
-		        <div class="bg-white p-6 rounded-lg shadow-md relative overflow-hidden transition-transform transform hover:scale-105 duration-300">
-		            <svg class="absolute top-4 left-4 w-10 h-10 text-blue-400 opacity-20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-		                <path stroke-linecap="round" stroke-linejoin="round" d="M19 5l-7 7-7-7"></path>
-		            </svg>
-		            <p class="text-gray-600">"Highly informative and well-written articles on various topics."</p>
-		            <p class="text-gray-800 font-semibold mt-4">- Priya Sharma</p>
-		        </div>
+			<div
+				class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
+				<img src="https://www.aqskill.com/wp-content/uploads/2022/02/5809368-2-scaled.jpg" alt="Design"
+					class="w-full h-64 object-cover">
+				<div class="p-6">
+					<h2 class="text-xl font-bold text-gray-800">UI/UX Best Practices</h2>
+					<p class="text-gray-600 mt-2">Design principles for modern web applications.</p>
+				</div>
+			</div>
 
-		        <!-- Testimonial 3 -->
-		        <div class="bg-white p-6 rounded-lg shadow-md relative overflow-hidden transition-transform transform hover:scale-105 duration-300">
-		            <svg class="absolute top-4 left-4 w-10 h-10 text-blue-400 opacity-20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-		                <path stroke-linecap="round" stroke-linejoin="round" d="M19 5l-7 7-7-7"></path>
-		            </svg>
-		            <p class="text-gray-600">"The best place to learn about coding, creativity, and new tech."</p>
-		            <p class="text-gray-800 font-semibold mt-4">- Rohan Verma</p>
-		        </div>
+			<div
+				class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
+				<img src="https://images.tech.co/wp-content/uploads/2017/04/Startup-growth--e1491836867115-640x361.png"
+					alt="Startup" class="w-full h-64 object-cover">
+				<div class="p-6">
+					<h2 class="text-xl font-bold text-gray-800">Startup Growth Hacks</h2>
+					<p class="text-gray-600 mt-2">Strategies for rapid business growth.</p>
+				</div>
+			</div>
 
-		    </div>
-		</section>
+			<div
+				class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
+				<img src="https://images3.alphacoders.com/123/1239283.jpg" alt="Blockchain"
+					class="w-full h-64 object-cover">
+				<div class="p-6">
+					<h2 class="text-xl font-bold text-gray-800">Blockchain & Web3</h2>
+					<p class="text-gray-600 mt-2">Exploring the decentralized web.</p>
+				</div>
+			</div>
 
-	    <!-- CTA Section -->
-	    <section class="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-16 fade-in">
-	        <h2 class="text-4xl font-bold">Join Us Today</h2>
-	        <p class="mt-4 text-lg">Get started and explore the amazing features we offer.</p>
-	        <a href="/contact-us" class="mt-6 inline-block bg-white text-blue-500 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-200 transition">Contact Us</a>
-	    </section>
+			<div
+				class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500 fade-in">
+				<img src="https://www.northants-chamber.co.uk/cdn/uploads/Productivity.jpeg" alt="Productivity"
+					class="w-full h-64 object-cover">
+				<div class="p-6">
+					<h2 class="text-xl font-bold text-gray-800">Productivity Hacks</h2>
+					<p class="text-gray-600 mt-2">Tips to maximize efficiency and focus.</p>
+				</div>
+			</div>
 
-	    <!-- Footer -->
-	    <!-- <footer class="bg-gray-800 text-white text-center py-8 mt-8 fade-in">
+		</div>
+	</section>
+
+	<!-- Testimonials Section -->
+	<section class="bg-gray-100 py-16">
+		<h2 class="text-4xl font-bold text-center text-gray-800">What People Say</h2>
+		<p class="text-center text-gray-600 mt-2">Real feedback from our happy readers</p>
+
+		<div class="mt-10 max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+
+			<!-- Testimonial 1 -->
+			<div
+				class="bg-white p-6 rounded-lg shadow-md relative overflow-hidden transition-transform transform hover:scale-105 duration-300">
+				<svg class="absolute top-4 left-4 w-10 h-10 text-blue-400 opacity-20" fill="none" stroke="currentColor"
+					stroke-width="2" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M19 5l-7 7-7-7"></path>
+				</svg>
+				<p class="text-gray-600">"This blog is my go-to resource for staying updated with tech trends!"</p>
+				<p class="text-gray-800 font-semibold mt-4">- Alex Johnson</p>
+			</div>
+
+			<!-- Testimonial 2 -->
+			<div
+				class="bg-white p-6 rounded-lg shadow-md relative overflow-hidden transition-transform transform hover:scale-105 duration-300">
+				<svg class="absolute top-4 left-4 w-10 h-10 text-blue-400 opacity-20" fill="none" stroke="currentColor"
+					stroke-width="2" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M19 5l-7 7-7-7"></path>
+				</svg>
+				<p class="text-gray-600">"Highly informative and well-written articles on various topics."</p>
+				<p class="text-gray-800 font-semibold mt-4">- Priya Sharma</p>
+			</div>
+
+			<!-- Testimonial 3 -->
+			<div
+				class="bg-white p-6 rounded-lg shadow-md relative overflow-hidden transition-transform transform hover:scale-105 duration-300">
+				<svg class="absolute top-4 left-4 w-10 h-10 text-blue-400 opacity-20" fill="none" stroke="currentColor"
+					stroke-width="2" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M19 5l-7 7-7-7"></path>
+				</svg>
+				<p class="text-gray-600">"The best place to learn about coding, creativity, and new tech."</p>
+				<p class="text-gray-800 font-semibold mt-4">- Rohan Verma</p>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-16 fade-in">
+		<h2 class="text-4xl font-bold">Join Us Today</h2>
+		<p class="mt-4 text-lg">Get started and explore the amazing features we offer.</p>
+		<a href="/contact-us"
+			class="mt-6 inline-block bg-white text-blue-500 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-200 transition">Contact
+			Us</a>
+	</section>
+
+	<!-- Footer -->
+	<!-- <footer class="bg-gray-800 text-white text-center py-8 mt-8 fade-in">
 	        <p>© 2025 My Blog. All rights reserved.</p>
 	    </footer> -->
 
-		<!-- new footer -->
+	<!-- new footer -->
 	<!-- Footer -->
 	<footer class="bg-gray-800 text-white text-center py-4 mt-10 fade-in">
 		<p>© 2025 My Blog. All rights reserved.</p>
@@ -175,11 +202,12 @@
 		<p class="text-xl text-red-500">❤️ Kashif Ali ❤️</p>
 	</footer>
 
-	    <script>
-	        document.addEventListener("DOMContentLoaded", function () {
-	            const elements = document.querySelectorAll(".fade-in");
-	            elements.forEach(el => el.classList.add("visible"));
-	        });
-	    </script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const elements = document.querySelectorAll(".fade-in");
+			elements.forEach(el => el.classList.add("visible"));
+		});
+	</script>
 </body>
+
 </html>
