@@ -47,8 +47,9 @@ public class BlogService {
     }
 
     public String uploadImage(MultipartFile file) throws IOException {
+        String folderPath = "upload/";
         String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-        Path filePath = Paths.get(folderPath, fileName);
+        Path filePath = Paths.get(folderPath+fileName);
         Files.createDirectories(filePath.getParent());
         Files.write(filePath, file.getBytes());
         return "/files/" + fileName;
