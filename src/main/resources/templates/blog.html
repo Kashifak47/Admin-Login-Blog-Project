@@ -1,80 +1,142 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blogs</title>
+	<script src="https://cdn.tailwindcss.com"></script>
 	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
 
 </head>
+
 <body>
 
-    <!-- Insert Navbar Fragment -->
-    <th:block th:insert="~{fragments/navbar :: nav}"></th:block>
+	<!-- Insert Navbar Fragment -->
+	<th:block th:insert="~{fragments/navbar :: nav}"></th:block>
 
 	<div class="max-w-3xl mx-auto py-10">
-	    <h1 class="text-4xl font-bold text-center mb-6">Our Latest Blogs</h1>
+		<h1 class="text-4xl font-bold text-center mb-6">Our Latest Blogs</h1>
 
-	    <div class="space-y-6">
-	        <!-- Loop through Blogs -->
-	        <div th:each="blog : ${blogs}" 
-	             class="bg-white rounded-lg shadow-lg overflow-hidden w-full transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-	            <img th:src="${blog.imageUrl}" alt="Blog Image" class="w-full h-64 object-cover">
-	            <div class="p-6">
-	                <h2 class="text-2xl font-semibold" th:text="${blog.title}"></h2>
-	                <p class="text-gray-700 mt-2" th:text="${blog.description}"></p>
-	                <button class="mt-4 bg-blue-500 text-white px-6 py-2 rounded-full transition-all duration-300 hover:bg-blue-700 hover:scale-105"
-	                        onclick="openModal(this)"
-	                        th:data-title="${blog.title}"
-	                        th:data-image="${blog.imageUrl}"
-	                        th:data-content="${blog.content}">
-	                    See More
-	                </button>
-	            </div>
-	        </div>
-	    </div>
+		<div class="space-y-6">
+			<!-- Loop through Blogs -->
+			<div th:each="blog : ${blogs}"
+				class="bg-white rounded-lg shadow-lg overflow-hidden w-full transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+				<img th:src="${blog.imageUrl}" alt="Blog Image" class="w-full h-64 object-cover">
+				<div class="p-6">
+					<h2 class="text-2xl font-semibold" th:text="${blog.title}"></h2>
+					<p class="text-gray-700 mt-2" th:text="${blog.description}"></p>
+					<button
+						class="mt-4 bg-blue-500 text-white px-6 py-2 rounded-full transition-all duration-300 hover:bg-blue-700 hover:scale-105"
+						onclick="openModal(this)" th:data-title="${blog.title}" th:data-image="${blog.imageUrl}"
+						th:data-content="${blog.content}">
+						See More
+					</button>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- MODAL -->
-	<div id="modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden overflow-y-auto">
-	    <div id="modal-content" class="bg-white px-6 py-8 rounded-lg shadow-lg max-w-2xl w-full sm:w-3/4 md:w-2/3 lg:w-1/2 relative transform scale-95 opacity-0 transition-all duration-300 my-12 max-h-[85vh] overflow-y-auto">
-	        
-	        <!-- Close Button (Fixed on Top Right) -->
-	        <button class="absolute top-2 right-2 text-gray-500 text-2xl hover:text-gray-800 focus:outline-none" onclick="closeModal()">✖</button>
-			
-	        <h2 id="modal-title" class="text-2xl font-bold"></h2>
-	        <img id="modal-image" class="w-full h-64 object-cover mt-4 rounded">
-	        <p id="modal-content-text" class="mt-4 text-gray-700"></p>
-	    </div>
+	<div id="modal"
+		class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden overflow-y-auto">
+		<div id="modal-content"
+			class="bg-white px-6 py-8 rounded-lg shadow-lg max-w-2xl w-full sm:w-3/4 md:w-2/3 lg:w-1/2 relative transform scale-95 opacity-0 transition-all duration-300 my-12 max-h-[85vh] overflow-y-auto">
+
+			<!-- Close Button (Fixed on Top Right) -->
+			<button class="absolute top-2 right-2 text-gray-500 text-2xl hover:text-gray-800 focus:outline-none"
+				onclick="closeModal()">✖</button>
+
+			<h2 id="modal-title" class="text-2xl font-bold"></h2>
+			<img id="modal-image" class="w-full h-64 object-cover mt-4 rounded">
+			<p id="modal-content-text" class="mt-4 text-gray-700"></p>
+		</div>
 	</div>
 
 	<script>
-	    function openModal(button) {
-	        document.getElementById("modal-title").innerText = button.getAttribute("data-title");
-	        document.getElementById("modal-image").src = button.getAttribute("data-image");
-	        document.getElementById("modal-content-text").innerText = button.getAttribute("data-content");
+		function openModal(button) {
+			document.getElementById("modal-title").innerText = button.getAttribute("data-title");
+			document.getElementById("modal-image").src = button.getAttribute("data-image");
+			document.getElementById("modal-content-text").innerText = button.getAttribute("data-content");
 
-	        const modal = document.getElementById("modal");
-	        const modalContent = document.getElementById("modal-content");
+			const modal = document.getElementById("modal");
+			const modalContent = document.getElementById("modal-content");
 
-	        modal.classList.remove("hidden");
-	        setTimeout(() => {
-	            modalContent.classList.remove("scale-95", "opacity-0");
-	            modalContent.classList.add("scale-100", "opacity-100");
-	        }, 10);
-	    }
+			modal.classList.remove("hidden");
+			setTimeout(() => {
+				modalContent.classList.remove("scale-95", "opacity-0");
+				modalContent.classList.add("scale-100", "opacity-100");
+			}, 10);
+		}
 
-	    function closeModal() {
-	        const modal = document.getElementById("modal");
-	        const modalContent = document.getElementById("modal-content");
+		function closeModal() {
+			const modal = document.getElementById("modal");
+			const modalContent = document.getElementById("modal-content");
 
-	        modalContent.classList.add("scale-95", "opacity-0");
-	        setTimeout(() => {
-	            modal.classList.add("hidden");
-	        }, 300);
-	    }
+			modalContent.classList.add("scale-95", "opacity-0");
+			setTimeout(() => {
+				modal.classList.add("hidden");
+			}, 300);
+		}
 	</script>
 
+	<script>
+		const frontendBlogs = [
+			{
+            title: "Elevate Your Coding Skills",
+            description: "Welcome to CodeElevate – the ultimate destination for developers who want to enhance their coding skills!",
+            imageUrl: "https://image.shutterstock.com/image-photo/man-programmer-coding-night-on-260nw-2463474777.jpg",
+            content: "Web Development Tutorials • Coding Challenges & Problem-Solving • Full-Stack Development Projects"
+        },
+        {
+            title: "Connecting You to the World of Code",
+            description: "DevInsight is your go-to platform for learning web and software development. From front-end technologies like HTML, CSS, JavaScript, and React to backend development with Java and Spring Boot.",
+            imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPVtNWjgApvAwIUQzM95WdB_dzgZ-oSblJWQ&s",
+            content: "How to Become a Full-Stack Developer in 2025 • Best Free Resources to Learn Java and Spring Boot • Freelancing as a Java Developer: How to Get Started?"
+        },
+        {
+            title: "Everything You Need for Web Development",
+            description: "We simplify coding for learners at all levels! From JavaScript basics to microservices with Spring Boot, our blog focuses on clarity and real-world practice.",
+            imageUrl: "https://khutwatuk.com/wp-content/uploads/2024/03/%D8%AA%D8%AE%D8%B5%D8%B5-%D9%87%D9%86%D8%AF%D8%B3%D8%A9-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A7%D8%AA-%D9%81%D9%8A-%D9%85%D8%A7%D9%84%D9%8A%D8%B2%D9%8A%D8%A7.webp",
+            content: "E-Commerce Website Development: A Beginner’s Guide • Building Scalable Web Apps with React and Redux • The Future of Web Development: Trends in 2025"
+        },
+		{
+            title: "Master Modern Software Development",
+            description: "Stay ahead in tech with practical guides, best practices, and industry-ready development techniques.",
+            imageUrl: "https://static.vecteezy.com/system/resources/previews/006/362/890/original/programming-and-software-development-web-page-banner-program-code-on-screen-device-software-development-coding-process-concept-vector.jpg",
+            content: "Clean Code Principles • REST API Development with Spring Boot • Deploying Applications Using Docker and Cloud Platforms"
+        }
+		];
+
+		const blogsContainer = document.querySelector(".space-y-6");
+
+		// 🔥 FRONTEND BLOGS FIRST
+		frontendBlogs.forEach(blog => {
+			const div = document.createElement("div");
+			div.className =
+				"bg-white rounded-lg shadow-lg overflow-hidden w-full transform transition-all duration-300 hover:scale-105 hover:shadow-2xl";
+
+			div.innerHTML = `
+            <img src="${blog.imageUrl}" class="w-full h-64 object-cover">
+            <div class="p-6">
+                <h2 class="text-2xl font-semibold">${blog.title}</h2>
+                <p class="text-gray-700 mt-2">${blog.description}</p>
+                <button class="mt-4 bg-blue-500 text-white px-6 py-2 rounded-full transition-all duration-300 hover:bg-blue-700 hover:scale-105"
+                        onclick="openModal(this)"
+                        data-title="${blog.title}"
+                        data-image="${blog.imageUrl}"
+                        data-content="${blog.content}">
+                    See More
+                </button>
+            </div>
+        `;
+
+			// ✅ prepend = frontend blogs appear first
+			blogsContainer.prepend(div);
+		});
+	</script>
+
+
 </body>
+
 </html>
